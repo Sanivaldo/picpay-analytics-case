@@ -1,1 +1,11 @@
-
+﻿transaction_id;transaction_date;transaction_type;transaction_value;receiver_used_cc_limit;payment_method;installments;p2p_surcharge_rate;bills_surcharge_rate;installment_rate
+1;03/01/2021;P2P;400;600;Credit card;12;1.99;2.99;3.49
+2;14/09/2021;BILLS;650;300;Credit card;5;1.99;2.99;3.49
+3;20/07/2021;BILLS;1200;0;Credit card;8;1.99;2.99;3.49
+4;06/08/2021;P2P;350;800;Credit card;9;1.99;2.99;3.49
+5;13/04/2021;P2P;3500;0;Credit card;10;1.99;2.99;3.49
+6;24/05/2021;P2P;3420;0;Credit card;7;1.99;2.99;3.49
+7;31/03/2021;BILLS;5000;0;Credit card;12;1.99;2.99;3.49
+8;30/08/2021;P2P;2800;0;Credit card;12;1.99;2.99;3.49
+9;28/08/2021;BILLS;6000;0;Credit card;4;1.99;2.99;3.49
+10;27/09/2021;P2P;8000;0;Credit card;6;1.99;2.99;3.49
