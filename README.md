@@ -1,6 +1,6 @@
-# PicPay – Case Técnico: Receita Financeira
+# PicPay – Case Técnico: Finance Analytics - Case receitas
 
-Este repositório apresenta a solução desenvolvida para o case técnico de Analytics Engineer proposto pelo PicPay. O objetivo é aplicar regras de negócio sobre transações financeiras e calcular as receitas provenientes de:
+Este repositório apresenta a solução desenvolvida para o case técnico de Finance Analytics - Case receitas proposto pelo PicPay. O objetivo é aplicar regras de negócio sobre transações financeiras e calcular as receitas provenientes de:
 
 * P2P (pagamentos entre usuários via cartão de crédito)
 * BILLS (pagamento de boletos, com ou sem parcelamento)
@@ -11,11 +11,13 @@ A solução foi desenvolvida em Azure, utilizando Azure Data Lake Storage Gen2 p
 
 ## Tecnologias e Ferramentas
 
-* Azure Data Lake Storage Gen2
-* Azure Databricks (com PySpark)
-* Delta Lake
-* Azure Storage Explorer (upload e validação)
-* Power BI (opcional)
+A solução foi construída utilizando recursos da plataforma Microsoft Azure, com foco nas boas práticas de engenharia de dados:
+
+- **Azure Data Lake Storage Gen2**: armazenamento em camadas (raw, processed, analytics) com organização baseada em propósito e granularidade.
+- **Azure Databricks**: processamento distribuído com PySpark, controle de acesso via Secret Scope e persistência otimizada com Delta Lake.
+- **Delta Lake**: gerenciamento de dados processados com versionamento, consistência transacional e desempenho em larga escala.
+- **Azure Storage Explorer**: upload e verificação dos dados brutos (CSV) no container de origem (camada raw).
+- **Azure Synapse Analytics (SQL Serverless)**: leitura e envio dos dados pra o Pool SQL`OPENROWSET`, o que permitiria a integração com ferramentas de visualização como Power BI e Tableau.
 
 ---
 
@@ -40,20 +42,10 @@ Todos os dados processados foram armazenados em formato Delta no Data Lake, e ex
 
 ---
 
-## Como Executar
-
-1. Suba o notebook `picpay_analytics_case_receitas.ipynb` em um ambiente Databricks com permissão de leitura e escrita no ADLS Gen2.
-2. Certifique-se de configurar as credenciais (preferencialmente via `dbutils.secrets`).
-3. Execute cada etapa sequencialmente: Bronze → Silver → Gold.
-4. Verifique os dados exportados em Delta e `.csv` na camada `analytics`.
-
----
-
 ## Resultado Final
 
-A tabela `transactions_installments` contém todas as transações BILLS parceladas, com cálculo das parcelas, juros, amortização e saldo restante, aplicando a lógica da Tabela Price em PySpark puro.
+A tabela `transactions_installments` contém todas as transações BILLS parceladas, com cálculo das parcelas, juros, amortização e saldo restante, aplicando a lógica da Tabela Price em PySpark.
 
-Essa abordagem elimina dependências externas, é escalável, e reflete práticas modernas de engenharia de dados em ambientes de nuvem.
 
 ---
 
