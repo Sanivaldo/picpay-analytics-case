@@ -23,9 +23,10 @@ A solução foi construída utilizando recursos da plataforma Microsoft Azure, c
 
 ## Estrutura do Pipeline
 
-* **Bronze**: ingestão do arquivo `transactions.csv` com os dados brutos no formato original (CSV).
-* **Silver**: aplicação de regras de negócio, limpeza e normalização dos dados.
-* **Gold**: geração da tabela de parcelas baseadas na Tabela Price, utilizando juros compostos.
+* **Bronze** (Raw): ingestão do arquivo `transactions.csv` com os dados brutos no formato original (CSV).
+* **Silver** (Processed): aplicação de regras de negócio, limpeza e normalização dos dados.
+* **Gold** (Analytcs): geração da tabelas com as regras já aplicadas e passíveis de serem consumidas pelo time de analistas
+* **SQL Pool** Tabelas para consumo no Power BI, Tableau etc.
 
 Todos os dados processados foram armazenados em formato Delta no Data Lake, e exportados em `.csv` para entrega final.
 
@@ -35,9 +36,9 @@ Todos os dados processados foram armazenados em formato Delta no Data Lake, e ex
 
 ```
 /raw/picpay_analytics_case_receitas/transactions.csv
-/processed/picpay_analytics_case_receitas/transactions_silver
+/processed/picpay_analytics_case_receitas/transactions_processed
+/analytics/picpay_analytics_case_receitas/transactions
 /analytics/picpay_analytics_case_receitas/transactions_installments
-/analytics/picpay_analytics_case_receitas/entrega_csv/installments
 ```
 
 ---
