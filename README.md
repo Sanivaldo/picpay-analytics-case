@@ -53,7 +53,7 @@ A tabela `transactions_installments` contém todas as transações BILLS parcela
 ## Autor
 
 Samuel Calado
-Engenheiro de Dados | Analista de Dados Sênior
+Analista de Dados Sênior
 [linkedin.com/in/samuelcalado](https://www.linkedin.com/in/samuelcalado)
 
 ---
